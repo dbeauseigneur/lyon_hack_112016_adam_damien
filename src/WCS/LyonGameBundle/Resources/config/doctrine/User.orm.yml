@@ -1,6 +1,6 @@
 WCS\LyonGameBundle\Entity\User:
     type: entity
-    table: null
+    table: fos_user
     repositoryClass: WCS\LyonGameBundle\Repository\UserRepository
     id:
         id:
@@ -8,6 +8,7 @@ WCS\LyonGameBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
+
     fields:
         email:
             type: string
