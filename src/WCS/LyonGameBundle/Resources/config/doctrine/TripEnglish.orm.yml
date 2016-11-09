@@ -1,0 +1,32 @@
+WCS\LyonGameBundle\Entity\TripEnglish:
+    type: entity
+    table: null
+    repositoryClass: WCS\LyonGameBundle\Repository\TripEnglishRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tripName:
+            type: string
+            length: 255
+            column: trip_name
+
+    manyToOne:
+        trip:
+            targetEntity: Trip
+            inversedBy: tripenglish
+            joinColumn:
+                name: trip_id
+                referencedColumnName: id
+
+    manyToOne:
+        Language:
+            targetEntity: Language
+            inversedBy: tripenglish
+            joinColumn:
+                name: language_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

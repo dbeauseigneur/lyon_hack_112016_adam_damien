@@ -1,0 +1,48 @@
+WCS\LyonGameBundle\Entity\Trip:
+    type: entity
+    table: null
+    repositoryClass: WCS\LyonGameBundle\Repository\TripRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        cost:
+            type: decimal
+            precision: '7'
+            scale: '2'
+        duration:
+            type: string
+            length: 255
+        slug:
+            type: string
+            length: 255
+
+    manyToMany:
+        users:
+            targetEntity: User
+            mappedBy: trips
+
+
+    oneToMany:
+        tripeglish:
+            targetEntity: TripEnglish
+            mappedBy: trip
+
+
+
+    manyToMany:
+        stopOvers:
+           targetEntity: StopOver
+           inversedBy: trips
+           joinTable:
+               name: trips_stopovers
+               joinColumns:
+                   trip_id:
+                      referencedColumnName: id
+               inverseJoinColumns:
+                   stopover_id:
+                      referencedColumnName: id
+    lifecycleCallbacks: {  }

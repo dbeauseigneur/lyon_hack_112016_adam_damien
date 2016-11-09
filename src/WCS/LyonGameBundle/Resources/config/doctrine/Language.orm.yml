@@ -1,0 +1,27 @@
+WCS\LyonGameBundle\Entity\Language:
+    type: entity
+    table: null
+    repositoryClass: WCS\LyonGameBundle\Repository\LanguageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        lang:
+            type: string
+            length: '30'
+
+
+    oneToMany:
+        users:
+            targetEntity: User
+            mappedBy: language
+
+    oneToMany:
+        trips:
+            targetEntity: Trip
+            mappedBy: language
+
+    lifecycleCallbacks: {  }

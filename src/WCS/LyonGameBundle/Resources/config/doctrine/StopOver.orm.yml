@@ -1,0 +1,28 @@
+WCS\LyonGameBundle\Entity\StopOver:
+    type: entity
+    table: null
+    repositoryClass: WCS\LyonGameBundle\Repository\StopOverRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sequence:
+            type: integer
+        cost:
+            type: integer
+        duration:
+            type: string
+            length: 255
+        directive:
+            type: text
+
+
+    manyToMany:
+        trips:
+            targetEntity: Trip
+            mappedBy: stopovers
+
+    lifecycleCallbacks: {  }
