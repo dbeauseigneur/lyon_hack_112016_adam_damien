@@ -1,3 +1,27 @@
+wcs_lyon_game_language:
+    resource: "@WCSLyonGameBundle/Resources/config/routing/language.yml"
+    prefix:   /language
+
 wcs_lyon_game_homepage:
     path:     /
     defaults: { _controller: WCSLyonGameBundle:Default:index }
+
+wcs_lyon_game_stopover:
+    resource: "@WCSLyonGameBundle/Resources/config/routing/stopover.yml"
+    prefix:   /stopover
+
+wcs_lyon_game_pointerest:
+    resource: "@WCSLyonGameBundle/Resources/config/routing/pointerest.yml"
+    prefix:   /pointerest
+
+wcs_lyon_game_trip:
+    resource: "@WCSLyonGameBundle/Resources/config/routing/trip.yml"
+    prefix:   /trip
+
+wcs_lyon_game_tripenglish:
+    resource: "@WCSLyonGameBundle/Resources/config/routing/tripenglish.yml"
+    prefix:   /tripenglish
+
+wcs_lyon_game_user:
+        resource: "@WCSLyonGameBundle/Resources/config/routing/user.yml"
+        prefix:   /user

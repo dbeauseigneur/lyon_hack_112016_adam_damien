@@ -1,0 +1,12 @@
+pointerest_index:
+    path:     /
+    defaults: { _controller: "WCSLyonGameBundle:Pointerest:index" }
+    methods:  GET
+
+pointerest_show:
+    path:     /{id}/show
+    defaults: { _controller: "WCSLyonGameBundle:Pointerest:show" }
+    methods:  GET
+
+
+

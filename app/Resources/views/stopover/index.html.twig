@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stopovers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sequence</th>
+                <th>Cost</th>
+                <th>Duration</th>
+                <th>Directive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stopOver in stopOvers %}
+            <tr>
+                <td><a href="{{ path('stopover_show', { 'id': stopOver.id }) }}">{{ stopOver.id }}</a></td>
+                <td>{{ stopOver.sequence }}</td>
+                <td>{{ stopOver.cost }}</td>
+                <td>{{ stopOver.duration }}</td>
+                <td>{{ stopOver.directive }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('stopover_show', { 'id': stopOver.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('stopover_edit', { 'id': stopOver.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('stopover_new') }}">Create a new stopOver</a>
+        </li>
+    </ul>
+{% endblock %}

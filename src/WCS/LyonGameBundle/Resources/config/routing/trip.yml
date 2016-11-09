@@ -1,0 +1,24 @@
+trip_index:
+    path:     /
+    defaults: { _controller: "WCSLyonGameBundle:Trip:index" }
+    methods:  GET
+
+trip_show:
+    path:     /{id}/show
+    defaults: { _controller: "WCSLyonGameBundle:Trip:show" }
+    methods:  GET
+
+trip_new:
+    path:     /new
+    defaults: { _controller: "WCSLyonGameBundle:Trip:new" }
+    methods:  [GET, POST]
+
+trip_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WCSLyonGameBundle:Trip:edit" }
+    methods:  [GET, POST]
+
+trip_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WCSLyonGameBundle:Trip:delete" }
+    methods:  DELETE

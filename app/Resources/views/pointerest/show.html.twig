@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pointerest</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pointerest.id }}</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>{{ pointerest.latitude }}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ pointerest.longitude }}</td>
+            </tr>
+            <tr>
+                <th>Altitude</th>
+                <td>{{ pointerest.altitude }}</td>
+            </tr>
+            <tr>
+                <th>Geometry</th>
+                <td>{{ pointerest.geometry }}</td>
+            </tr>
+            <tr>
+                <th>Idsitra1</th>
+                <td>{{ pointerest.idSitra1 }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ pointerest.type }}</td>
+            </tr>
+            <tr>
+                <th>Typedetail</th>
+                <td>{{ pointerest.typeDetail }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ pointerest.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ pointerest.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepostal</th>
+                <td>{{ pointerest.codepostal }}</td>
+            </tr>
+            <tr>
+                <th>Commune</th>
+                <td>{{ pointerest.commune }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ pointerest.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ pointerest.fax }}</td>
+            </tr>
+            <tr>
+                <th>Telephonefax</th>
+                <td>{{ pointerest.telephonefax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ pointerest.email }}</td>
+            </tr>
+            <tr>
+                <th>Siteweb</th>
+                <td>{{ pointerest.siteweb }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ pointerest.facebook }}</td>
+            </tr>
+            <tr>
+                <th>Classement</th>
+                <td>{{ pointerest.classement }}</td>
+            </tr>
+            <tr>
+                <th>Ouverture</th>
+                <td>{{ pointerest.ouverture }}</td>
+            </tr>
+            <tr>
+                <th>Tarifsenclair</th>
+                <td>{{ pointerest.tarifsenclair }}</td>
+            </tr>
+            <tr>
+                <th>Tarifsmin</th>
+                <td>{{ pointerest.tarifsmin }}</td>
+            </tr>
+            <tr>
+                <th>Tarifsmax</th>
+                <td>{{ pointerest.tarifsmax }}</td>
+            </tr>
+            <tr>
+                <th>Producteur</th>
+                <td>{{ pointerest.producteur }}</td>
+            </tr>
+            <tr>
+                <th>Gid</th>
+                <td>{{ pointerest.gid }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ pointerest.dateCreation }}</td>
+            </tr>
+            <tr>
+                <th>Lastupdate</th>
+                <td>{{ pointerest.lastUpdate }}</td>
+            </tr>
+            <tr>
+                <th>Lastupdatefme</th>
+                <td>{{ pointerest.lastUpdateFme }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pointerest_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

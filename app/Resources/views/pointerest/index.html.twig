@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pointerests list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Altitude</th>
+                <th>Geometry</th>
+                <th>Idsitra1</th>
+                <th>Type</th>
+                <th>Typedetail</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Commune</th>
+                <th>Telephone</th>
+                <th>Fax</th>
+                <th>Telephonefax</th>
+                <th>Email</th>
+                <th>Siteweb</th>
+                <th>Facebook</th>
+                <th>Classement</th>
+                <th>Ouverture</th>
+                <th>Tarifsenclair</th>
+                <th>Tarifsmin</th>
+                <th>Tarifsmax</th>
+                <th>Producteur</th>
+                <th>Gid</th>
+                <th>Datecreation</th>
+                <th>Lastupdate</th>
+                <th>Lastupdatefme</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pointerest in pointerests %}
+            <tr>
+                <td><a href="{{ path('pointerest_show', { 'id': pointerest.id }) }}">{{ pointerest.id }}</a></td>
+                <td>{{ pointerest.latitude }}</td>
+                <td>{{ pointerest.longitude }}</td>
+                <td>{{ pointerest.altitude }}</td>
+                <td>{{ pointerest.geometry }}</td>
+                <td>{{ pointerest.idSitra1 }}</td>
+                <td>{{ pointerest.type }}</td>
+                <td>{{ pointerest.typeDetail }}</td>
+                <td>{{ pointerest.nom }}</td>
+                <td>{{ pointerest.adresse }}</td>
+                <td>{{ pointerest.codepostal }}</td>
+                <td>{{ pointerest.commune }}</td>
+                <td>{{ pointerest.telephone }}</td>
+                <td>{{ pointerest.fax }}</td>
+                <td>{{ pointerest.telephonefax }}</td>
+                <td>{{ pointerest.email }}</td>
+                <td>{{ pointerest.siteweb }}</td>
+                <td>{{ pointerest.facebook }}</td>
+                <td>{{ pointerest.classement }}</td>
+                <td>{{ pointerest.ouverture }}</td>
+                <td>{{ pointerest.tarifsenclair }}</td>
+                <td>{{ pointerest.tarifsmin }}</td>
+                <td>{{ pointerest.tarifsmax }}</td>
+                <td>{{ pointerest.producteur }}</td>
+                <td>{{ pointerest.gid }}</td>
+                <td>{{ pointerest.dateCreation }}</td>
+                <td>{{ pointerest.lastUpdate }}</td>
+                <td>{{ pointerest.lastUpdateFme }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('pointerest_show', { 'id': pointerest.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

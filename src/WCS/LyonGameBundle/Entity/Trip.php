@@ -109,5 +109,90 @@ class Trip
     {
         return $this->slug;
     }
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $tripenglish;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tripenglish = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add tripenglish
+     *
+     * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripenglish
+     *
+     * @return Trip
+     */
+    public function addTripenglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripenglish)
+    {
+        $this->tripenglish[] = $tripenglish;
+
+        return $this;
+    }
+
+    /**
+     * Remove tripenglish
+     *
+     * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripenglish
+     */
+    public function removeTripenglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripenglish)
+    {
+        $this->tripenglish->removeElement($tripenglish);
+    }
+
+    /**
+     * Get tripenglish
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTripenglish()
+    {
+        return $this->tripenglish;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \WCS\LyonGameBundle\Entity\User $user
+     *
+     * @return Trip
+     */
+    public function addUser(\WCS\LyonGameBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \WCS\LyonGameBundle\Entity\User $user
+     */
+    public function removeUser(\WCS\LyonGameBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+}

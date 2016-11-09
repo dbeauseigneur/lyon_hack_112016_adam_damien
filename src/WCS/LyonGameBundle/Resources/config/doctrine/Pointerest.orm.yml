@@ -1,0 +1,181 @@
+WCS\LyonGameBundle\Entity\Pointerest:
+    type: entity
+    table: pointerest
+    uniqueConstraints:
+        id:
+            columns:
+                - id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        latitude:
+            type: decimal
+            nullable: true
+            precision: 8
+            scale: 6
+        longitude:
+            type: decimal
+            nullable: true
+            precision: 7
+            scale: 6
+        altitude:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        geometry:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+        idSitra1:
+            type: string
+            nullable: true
+            length: 17
+            options:
+                fixed: false
+            column: id_sitra1
+        type:
+            type: string
+            nullable: true
+            length: 21
+            options:
+                fixed: false
+        typeDetail:
+            type: string
+            nullable: true
+            length: 209
+            options:
+                fixed: false
+            column: type_detail
+        nom:
+            type: string
+            nullable: true
+            length: 79
+            options:
+                fixed: false
+        adresse:
+            type: string
+            nullable: true
+            length: 93
+            options:
+                fixed: false
+        codepostal:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        commune:
+            type: string
+            nullable: true
+            length: 26
+            options:
+                fixed: false
+        telephone:
+            type: string
+            nullable: true
+            length: 54
+            options:
+                fixed: false
+        fax:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        telephonefax:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 80
+            options:
+                fixed: false
+        siteweb:
+            type: string
+            nullable: true
+            length: 247
+            options:
+                fixed: false
+        facebook:
+            type: string
+            nullable: true
+            length: 121
+            options:
+                fixed: false
+        classement:
+            type: string
+            nullable: true
+            length: 22
+            options:
+                fixed: false
+        ouverture:
+            type: string
+            nullable: true
+            length: 935
+            options:
+                fixed: false
+        tarifsenclair:
+            type: string
+            nullable: true
+            length: 828
+            options:
+                fixed: false
+        tarifsmin:
+            type: string
+            nullable: true
+            length: 4
+            options:
+                fixed: false
+        tarifsmax:
+            type: string
+            nullable: true
+            length: 4
+            options:
+                fixed: false
+        producteur:
+            type: string
+            nullable: true
+            length: 31
+            options:
+                fixed: false
+        gid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        dateCreation:
+            type: string
+            nullable: true
+            length: 19
+            options:
+                fixed: false
+            column: date_creation
+        lastUpdate:
+            type: string
+            nullable: true
+            length: 19
+            options:
+                fixed: false
+            column: last_update
+        lastUpdateFme:
+            type: string
+            nullable: true
+            length: 19
+            options:
+                fixed: false
+            column: last_update_fme
+    lifecycleCallbacks: {  }

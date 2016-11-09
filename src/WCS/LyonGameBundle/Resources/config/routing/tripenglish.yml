@@ -1,0 +1,24 @@
+tripenglish_index:
+    path:     /
+    defaults: { _controller: "WCSLyonGameBundle:TripEnglish:index" }
+    methods:  GET
+
+tripenglish_show:
+    path:     /{id}/show
+    defaults: { _controller: "WCSLyonGameBundle:TripEnglish:show" }
+    methods:  GET
+
+tripenglish_new:
+    path:     /new
+    defaults: { _controller: "WCSLyonGameBundle:TripEnglish:new" }
+    methods:  [GET, POST]
+
+tripenglish_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WCSLyonGameBundle:TripEnglish:edit" }
+    methods:  [GET, POST]
+
+tripenglish_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WCSLyonGameBundle:TripEnglish:delete" }
+    methods:  DELETE

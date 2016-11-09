@@ -25,4 +25,20 @@ WCS\LyonGameBundle\Entity\StopOver:
             targetEntity: Trip
             mappedBy: stopovers
 
+    manyToOne:
+        pointerestStart:
+            targetEntity: Pointerest
+            inversedBy: stopover
+            joinColumn:
+                name: pointerest_start_id
+                referencedColumnName: id
+
+    manyToOne:
+        pointerestStop:
+            targetEntity: Pointerest
+            inversedBy: stopover
+            joinColumn:
+                name: pointerest_stop_id
+                referencedColumnName: id
+
     lifecycleCallbacks: {  }

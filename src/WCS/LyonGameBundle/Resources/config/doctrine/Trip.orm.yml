@@ -27,7 +27,7 @@ WCS\LyonGameBundle\Entity\Trip:
 
 
     oneToMany:
-        tripeglish:
+        tripenglish:
             targetEntity: TripEnglish
             mappedBy: trip
 

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tripenglishes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tripname</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tripEnglish in tripEnglishes %}
+            <tr>
+                <td><a href="{{ path('tripenglish_show', { 'id': tripEnglish.id }) }}">{{ tripEnglish.id }}</a></td>
+                <td>{{ tripEnglish.tripName }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tripenglish_show', { 'id': tripEnglish.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tripenglish_edit', { 'id': tripEnglish.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tripenglish_new') }}">Create a new tripEnglish</a>
+        </li>
+    </ul>
+{% endblock %}

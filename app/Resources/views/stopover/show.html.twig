@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stopover</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ stopOver.id }}</td>
+            </tr>
+            <tr>
+                <th>Sequence</th>
+                <td>{{ stopOver.sequence }}</td>
+            </tr>
+            <tr>
+                <th>Cost</th>
+                <td>{{ stopOver.cost }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ stopOver.duration }}</td>
+            </tr>
+            <tr>
+                <th>Directive</th>
+                <td>{{ stopOver.directive }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('stopover_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('stopover_edit', { 'id': stopOver.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
