@@ -1,6 +1,6 @@
 <?php
 
-namespace WCS\LyonGameBundle\Repository;
+namespace ControlUserBundle\Repository;
 
 /**
  * UserRepository

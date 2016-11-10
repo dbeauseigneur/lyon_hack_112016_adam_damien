@@ -7,8 +7,8 @@ wcs_lyon_game_test_geoloc:
     defaults: { _controller: WCSLyonGameBundle:Default:testLoc }
 
 wcs_lyon_game_homepage:
-    path:     /
-    defaults: { _controller: WCSLyonGameBundle:Default:index }
+    path:     /lyon_game
+    defaults: { _controller: WCS:LyonGameBundle:Default:index }
 
 wcs_lyon_game_stopover:
     resource: "@WCSLyonGameBundle/Resources/config/routing/stopover.yml"
@@ -26,6 +26,4 @@ wcs_lyon_game_tripenglish:
     resource: "@WCSLyonGameBundle/Resources/config/routing/tripenglish.yml"
     prefix:   /tripenglish
 
-wcs_lyon_game_user:
-        resource: "@WCSLyonGameBundle/Resources/config/routing/user.yml"
-        prefix:   /user
+

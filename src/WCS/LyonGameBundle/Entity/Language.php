@@ -97,4 +97,43 @@ class Language
     {
         return $this->users;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $trips;
+
+
+    /**
+     * Add trip
+     *
+     * @param \WCS\LyonGameBundle\Entity\Trip $trip
+     *
+     * @return Language
+     */
+    public function addTrip(\WCS\LyonGameBundle\Entity\Trip $trip)
+    {
+        $this->trips[] = $trip;
+
+        return $this;
+    }
+
+    /**
+     * Remove trip
+     *
+     * @param \WCS\LyonGameBundle\Entity\Trip $trip
+     */
+    public function removeTrip(\WCS\LyonGameBundle\Entity\Trip $trip)
+    {
+        $this->trips->removeElement($trip);
+    }
+
+    /**
+     * Get trips
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTrips()
+    {
+        return $this->trips;
+    }
 }
