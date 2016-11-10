@@ -195,4 +195,43 @@ class Trip
     {
         return $this->users;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $stopOvers;
+
+
+    /**
+     * Add stopOver
+     *
+     * @param \WCS\LyonGameBundle\Entity\StopOver $stopOver
+     *
+     * @return Trip
+     */
+    public function addStopOver(\WCS\LyonGameBundle\Entity\StopOver $stopOver)
+    {
+        $this->stopOvers[] = $stopOver;
+
+        return $this;
+    }
+
+    /**
+     * Remove stopOver
+     *
+     * @param \WCS\LyonGameBundle\Entity\StopOver $stopOver
+     */
+    public function removeStopOver(\WCS\LyonGameBundle\Entity\StopOver $stopOver)
+    {
+        $this->stopOvers->removeElement($stopOver);
+    }
+
+    /**
+     * Get stopOvers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStopOvers()
+    {
+        return $this->stopOvers;
+    }
 }

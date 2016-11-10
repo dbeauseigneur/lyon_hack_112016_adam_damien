@@ -1,23 +1,22 @@
-ControlUserBundle\Entity\User:
-    type: entity
-    table: user
-    repositoryClass: ControlUserBundle\Repository\UserRepository
+WCS\LyonGameBundle\Entity\User:
+    type:  entity
+    table: lg_user
     fields:
         id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
+
         country:
             type: string
             length: 255
-            nullable: true
+
         city:
             type: string
             length: 255
-            nullable: true
+
         language:
             type: string
             length: 255
-            nullable: true
-    lifecycleCallbacks: {  }
+
