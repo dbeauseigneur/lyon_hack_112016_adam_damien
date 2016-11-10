@@ -51,5 +51,50 @@ class Language
     {
         return $this->lang;
     }
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \WCS\LyonGameBundle\Entity\User $user
+     *
+     * @return Language
+     */
+    public function addUser(\WCS\LyonGameBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \WCS\LyonGameBundle\Entity\User $user
+     */
+    public function removeUser(\WCS\LyonGameBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+}

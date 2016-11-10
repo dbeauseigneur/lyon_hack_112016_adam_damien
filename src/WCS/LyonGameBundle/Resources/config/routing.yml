@@ -3,8 +3,8 @@ wcs_lyon_game_language:
     prefix:   /language
 
 wcs_lyon_game_homepage:
-    path:     /
-    defaults: { _controller: WCSLyonGameBundle:Default:index }
+    path:     /lyon_game
+    defaults: { _controller: WCS:LyonGameBundle:Default:index }
 
 wcs_lyon_game_stopover:
     resource: "@WCSLyonGameBundle/Resources/config/routing/stopover.yml"
@@ -22,25 +22,4 @@ wcs_lyon_game_tripenglish:
     resource: "@WCSLyonGameBundle/Resources/config/routing/tripenglish.yml"
     prefix:   /tripenglish
 
-wcs_lyon_game_user:
-    resource: "@WCSLyonGameBundle/Resources/config/routing/user.yml"
-    prefix:   /user
 
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
-
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
-
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /reset
-
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
