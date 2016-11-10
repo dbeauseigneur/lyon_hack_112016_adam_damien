@@ -16,7 +16,7 @@ class FrontController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
-           'trip_unesco'=> $em->getRepository('WCSLyonGameBundle:Trip')->getTripUnesco () )
+           'trip_unesco'=> $em->getRepository('Trip')->getTripUnesco () )
         );
     }
 
@@ -24,7 +24,7 @@ class FrontController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
-                'trip_unesco'=> $em->getRepository('WCSLyonGameBundle:Trip')->getTripPokemonGo () )
+            'trip_unesco'=> $em->getRepository('Trip')->getTripPokemonGo () )
         );
     }
 
