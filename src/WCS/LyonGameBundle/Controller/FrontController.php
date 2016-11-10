@@ -7,13 +7,13 @@
  */
 
 namespace WCS\LyonGameBundle\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-
-class FrontController
+class FrontController extends Controller
 {
     public function unescoAction()
     {
-        return $this->render('LyonGameBundle:Front:unesco.html.twig');
+        return $this->render('WCSLyonGameBundle:Front:unesco.html.twig');
     }
 
 
