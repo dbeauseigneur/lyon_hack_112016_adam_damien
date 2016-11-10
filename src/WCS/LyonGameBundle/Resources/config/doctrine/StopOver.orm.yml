@@ -33,7 +33,6 @@ WCS\LyonGameBundle\Entity\StopOver:
                 name: pointerest_start_id
                 referencedColumnName: id
 
-    manyToOne:
         pointerestStop:
             targetEntity: Pointerest
             inversedBy: stopover

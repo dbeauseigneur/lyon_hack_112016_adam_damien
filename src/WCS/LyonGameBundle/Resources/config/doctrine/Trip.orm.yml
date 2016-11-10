@@ -21,13 +21,10 @@ WCS\LyonGameBundle\Entity\Trip:
             length: 255
 
 
-
-
     oneToMany:
-        tripenglish:
+        tripEnglishs:
             targetEntity: TripEnglish
             mappedBy: trip
-
 
 
     manyToMany:
