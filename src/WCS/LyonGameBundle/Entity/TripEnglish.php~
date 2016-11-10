@@ -51,5 +51,33 @@ class TripEnglish
     {
         return $this->tripName;
     }
-}
+    /**
+     * @var \WCS\LyonGameBundle\Entity\Trip
+     */
+    private $trip;
 
+
+    /**
+     * Set trip
+     *
+     * @param \WCS\LyonGameBundle\Entity\Trip $trip
+     *
+     * @return TripEnglish
+     */
+    public function setTrip(\WCS\LyonGameBundle\Entity\Trip $trip = null)
+    {
+        $this->trip = $trip;
+
+        return $this;
+    }
+
+    /**
+     * Get trip
+     *
+     * @return \WCS\LyonGameBundle\Entity\Trip
+     */
+    public function getTrip()
+    {
+        return $this->trip;
+    }
+}

@@ -1,4 +1,14 @@
+#control_user:
+#    resource: "@ControlUserBundle/Resources/config/routing.yml"
+#    prefix:   /
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+
 wcs_lyon_game:
     resource: "@WCSLyonGameBundle/Resources/config/routing.yml"
     prefix:   /
+
 

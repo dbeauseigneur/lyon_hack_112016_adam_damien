@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}HTML5 : Géolocalisation {% endblock %}
+{% block body %}
+    <div id="infoposition"></div>
+    {%  if latitude != '' and arrival == 'not now' %}
+    latitude : {{latitude}}<br>
+    longitude : {{longitude}}<br>
+    {% endif%}
+    {% if (arrival == 'not now') %}
+
+
+        <form action="{{ path('wcs_lyon_game_test_geoloc') }}" method="POST"  id="contact_form">
+            <input type="hidden" name="lat" id="lat" />
+            <input type="hidden" name="lng" id="lng" />
+            <input type="text" name="localized" id="localized" disabled="true"/>
+            <input name="submit" type="submit" value="Vérifie localisation" id="contact_submit_forms">
+        </form>
+
+    {% else %}
+        <H1>Arrivé</H1><br>
+        <a href="{{ path('wcs_lyon_game_test_geoloc') }}" ><h2>A suivre </h2></a>
+    {% endif %}
+{% endblock %}
+{% block javascripts %}
+    {% if (arrival == 'not now') %}
+    <script type="text/javascript" src="{{ asset('js/geoloc.js') }}"></script>
+    {% endif %}
+{% endblock %}
