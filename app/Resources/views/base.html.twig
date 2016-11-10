@@ -1,14 +1,108 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=fr'></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Neoxi</title>
+    <!--raleway font-->
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext';
+    </style>
+
+    <!--favicons-->
+
+
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset ('css/login.css')}}">
+
+    {% endblock %}
+
+</head>
+
+<header>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div id="header-container" class="header-background container-fluid noPadding-left-right">
+            <div style="margin: 0;" class="col-xs-12 navbar-header">
+                <button type="button" class="hamburger navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="row">
+                    <div class="col-xs-8 col-md-2 neoxi-header-title">
+                        <div class="header-height col-xs-6 col-md-2">
+                            <div class="col-xs-2">
+                                <div>
+                                    <a href="{{ path('neoxis_neo_homepage') }}"><img id="logoColors" src="{{ asset ('images/logo-neoxi-colors.png')}}"/></a>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="col-xs-3 col-sm-3 col-sm-offset-5 button-contact" href="{{ path('neoxis_contact') }}">CONTACT</a>
+                    </div>
+                    <a class="col-xs-12 button-contactXXs" id="contactButton" href="{{ path('neoxis_contact') }}">CONTACT</a>
+                    <div class="float-right no-padding col-xs-2 navbar-collapse collapse">
+                        <ul id="nav" class="no-padding margin-nav nav navbar-nav">
+                            <li><a href="{{ path('neoxis_societepage') }}">LA&nbsp;SOCIÉTÉ</a></li>
+                            <li><a href="{{ path('neoxis_notre_expertisepage') }}">EXPERTISE</a></li>
+                            <li><a href="{{ path('neoxis_nos_engagementspage') }}">ENGAGEMENTS</a></li>
+                            <li><a href="{{ path('neoxis_logiciels_referencespage') }}">LOGICIELS</a></li>
+                            <li><a class="actu" href="{{ path('neoxis_actupage') }}">ACTUALITÉS</a></li>
+                            <li class="hideOnMd"><a href="{{ path('neoxis_contact') }}">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<body>
+{% block body %}{% endblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="getUp col-xs-12">
+            <img class="pointer" src="{{ asset('images/arrow-up.png')}}" onclick="goTop()"/>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div id="footer">
+        <div class="container-fluid footerFluid">
+            <div class="row classRowFooter" >
+                <div class="col-xs-4">
+                    <a href="{{ path('neoxis_contact') }}"><img src="{{ asset ('images/contact-footer.png')}}" class="imgFooter" alt=""> </a>
+                    <br>
+                    <a href="{{ path('neoxis_contact') }}"><h2 class="footertext">Nous contacter</h2> </a>
+                    <br/>
+                </div>
+                <div class="col-xs-4">
+                    <a href="{{ path('neoxis_contact') }}"> <img src="{{ asset ('images/adresse-footer.png')}}" class="imgFooter" alt=""> </a>
+                    <br>
+                    <a href="{{ path('neoxis_contact') }}"><h2 class="footertext">Greenopolis <br> 31, rue Saint Simon <br/> 69009 Lyon</h2></a>
+
+                    <br/>
+                </div>
+                <div class="col-xs-4">
+                    <a href="{{ path('neoxis_contact') }}"><img src="{{ ('images/telephone-footer.png')}}" class="imgFooter" alt=""> </a>
+                    <br>
+                    <a href="{{ path('neoxis_contact') }}"><h2 class="footertext">04 27 11 86 00</h2> </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="mentions">@2016 Neoxi - <a href="{{ path('neoxis_mention_legalespage') }}">MENTIONS LÉGALES </a> &nbsp; | &nbsp; Site réalisé par les élèves de la Wild Code School</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
