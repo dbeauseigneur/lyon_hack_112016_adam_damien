@@ -97,4 +97,48 @@ class Language
     {
         return $this->users;
     }
+
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $tripEnglishs;
+
+
+    /**
+     * Add tripenglish
+     *
+     * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish
+     *
+     * @return Language
+     */
+    public function addTripEnglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish)
+    {
+        $this->tripEnglishs[] = $tripEnglish;
+
+        return $this;
+    }
+
+    /**
+     * Remove tripEnglish
+     *
+     * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish
+     */
+    public function removeTripEnglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish)
+    {
+        $this->tripEnglishs->removeElement($tripEnglish);
+    }
+
+    /**
+     * Get tripEnglishs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTripEnglishs()
+    {
+        return $this->tripEnglishs;
+    }
+
+
+
 }
