@@ -109,10 +109,6 @@ class Trip
     {
         return $this->slug;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $tripenglish;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -128,39 +124,6 @@ class Trip
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Add tripenglish
-     *
-     * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripenglish
-     *
-     * @return Trip
-     */
-    public function addTripenglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripenglish)
-    {
-        $this->tripenglish[] = $tripenglish;
-
-        return $this;
-    }
-
-    /**
-     * Remove tripenglish
-     *
-     * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripenglish
-     */
-    public function removeTripenglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripenglish)
-    {
-        $this->tripenglish->removeElement($tripenglish);
-    }
-
-    /**
-     * Get tripenglish
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTripenglish()
-    {
-        return $this->tripenglish;
-    }
 
     /**
      * Add user
@@ -194,6 +157,84 @@ class Trip
     public function getUsers()
     {
         return $this->users;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $stopOvers;
+
+
+    /**
+     * Add stopOver
+     *
+     * @param \WCS\LyonGameBundle\Entity\StopOver $stopOver
+     *
+     * @return Trip
+     */
+    public function addStopOver(\WCS\LyonGameBundle\Entity\StopOver $stopOver)
+    {
+        $this->stopOvers[] = $stopOver;
+
+        return $this;
+    }
+
+    /**
+     * Remove stopOver
+     *
+     * @param \WCS\LyonGameBundle\Entity\StopOver $stopOver
+     */
+    public function removeStopOver(\WCS\LyonGameBundle\Entity\StopOver $stopOver)
+    {
+        $this->stopOvers->removeElement($stopOver);
+    }
+
+    /**
+     * Get stopOvers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStopOvers()
+    {
+        return $this->stopOvers;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $tripEnglishs;
+
+
+    /**
+     * Get tripenglishs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTripEnglishs()
+    {
+        return $this->tripenglishs;
+    }
+
+    /**
+     * Add tripEnglish
+     *
+     * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish
+     *
+     * @return Trip
+     */
+    public function addTripEnglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish)
+    {
+        $this->tripEnglishs[] = $tripEnglish;
+
+        return $this;
+    }
+
+    /**
+     * Remove tripEnglish
+     *
+     * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish
+     */
+    public function removeTripEnglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish)
+    {
+        $this->tripEnglishs->removeElement($tripEnglish);
     }
     /**
      * @var \Doctrine\Common\Collections\Collection

@@ -15,18 +15,20 @@ WCS\LyonGameBundle\Entity\TripEnglish:
             column: trip_name
 
     manyToOne:
+        language:
+            targetEntity: Language
+            inversedBy: tripEnglish
+            joinColumn:
+                name: language_id
+                referencedColumnName: id
+
         trip:
             targetEntity: Trip
-            inversedBy: tripenglish
+            inversedBy: tripEnglish
             joinColumn:
                 name: trip_id
                 referencedColumnName: id
 
-    manyToOne:
-        Language:
-            targetEntity: Language
-            inversedBy: tripenglish
-            joinColumn:
-                name: language_id
-                referencedColumnName: id
+
+
     lifecycleCallbacks: {  }

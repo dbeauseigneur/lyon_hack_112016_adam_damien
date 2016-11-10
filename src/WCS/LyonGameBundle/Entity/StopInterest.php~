@@ -1,0 +1,112 @@
+<?php
+
+namespace WCS\LyonGameBundle\Entity;
+
+/**
+ * StopInterest
+ */
+class StopInterest
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var int
+     */
+    private $position;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     *
+     * @return StopInterest
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+    /**
+     * @var \WCS\LyonGameBundle\Entity\StopOver
+     */
+    private $stopOver;
+
+
+    /**
+     * Set stopOver
+     *
+     * @param \WCS\LyonGameBundle\Entity\StopOver $stopOver
+     *
+     * @return StopInterest
+     */
+    public function setStopOver(\WCS\LyonGameBundle\Entity\StopOver $stopOver = null)
+    {
+        $this->stopOver = $stopOver;
+
+        return $this;
+    }
+
+    /**
+     * Get stopOver
+     *
+     * @return \WCS\LyonGameBundle\Entity\StopOver
+     */
+    public function getStopOver()
+    {
+        return $this->stopOver;
+    }
+    /**
+     * @var \WCS\LyonGameBundle\Entity\Pointerest
+     */
+    private $pointerest;
+
+
+    /**
+     * Set pointerest
+     *
+     * @param \WCS\LyonGameBundle\Entity\Pointerest $pointerest
+     *
+     * @return StopInterest
+     */
+    public function setPointerest(\WCS\LyonGameBundle\Entity\Pointerest $pointerest = null)
+    {
+        $this->pointerest = $pointerest;
+
+        return $this;
+    }
+
+    /**
+     * Get pointerest
+     *
+     * @return \WCS\LyonGameBundle\Entity\Pointerest
+     */
+    public function getPointerest()
+    {
+        return $this->pointerest;
+    }
+}

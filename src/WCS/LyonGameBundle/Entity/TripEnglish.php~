@@ -80,4 +80,33 @@ class TripEnglish
     {
         return $this->trip;
     }
+    /**
+     * @var \WCS\LyonGameBundle\Entity\Language
+     */
+    private $language;
+
+
+    /**
+     * Set language
+     *
+     * @param \WCS\LyonGameBundle\Entity\Language $language
+     *
+     * @return TripEnglish
+     */
+    public function setLanguage(\WCS\LyonGameBundle\Entity\Language $language = null)
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    /**
+     * Get language
+     *
+     * @return \WCS\LyonGameBundle\Entity\Language
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
 }

@@ -138,10 +138,6 @@ class StopOver
     {
         return $this->directive;
     }
-    /**
-     * @var \WCS\LyonGameBundle\Entity\Pointerest
-     */
-    private $pointerestStart;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -156,31 +152,7 @@ class StopOver
         $this->trips = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Set pointerestStart
-     *
-     * @param \WCS\LyonGameBundle\Entity\Pointerest $pointerestStart
-     *
-     * @return StopOver
-     */
-    public function setPointerestStart(\WCS\LyonGameBundle\Entity\Pointerest $pointerestStart = null)
-    {
-        $this->pointerestStart = $pointerestStart;
-
-        return $this;
-    }
-
-    /**
-     * Get pointerestStart
-     *
-     * @return \WCS\LyonGameBundle\Entity\Pointerest
-     */
-    public function getPointerestStart()
-    {
-        return $this->pointerestStart;
-    }
-
-    /**
+      /**
      * Add trip
      *
      * @param \WCS\LyonGameBundle\Entity\Trip $trip
@@ -212,5 +184,63 @@ class StopOver
     public function getTrips()
     {
         return $this->trips;
+    }
+    /**
+     * @var \WCS\LyonGameBundle\Entity\Pointerest
+     */
+    private $pointerestStart;
+
+    /**
+     * @var \WCS\LyonGameBundle\Entity\Pointerest
+     */
+    private $pointerestStop;
+
+
+    /**
+     * Set pointerestStart
+     *
+     * @param \WCS\LyonGameBundle\Entity\Pointerest $pointerestStart
+     *
+     * @return StopOver
+     */
+    public function setPointerestStart(\WCS\LyonGameBundle\Entity\Pointerest $pointerestStart = null)
+    {
+        $this->pointerestStart = $pointerestStart;
+
+        return $this;
+    }
+
+    /**
+     * Get pointerestStart
+     *
+     * @return \WCS\LyonGameBundle\Entity\Pointerest
+     */
+    public function getPointerestStart()
+    {
+        return $this->pointerestStart;
+    }
+
+    /**
+     * Set pointerestStop
+     *
+     * @param \WCS\LyonGameBundle\Entity\Pointerest $pointerestStop
+     *
+     * @return StopOver
+     */
+    public function setPointerestStop(\WCS\LyonGameBundle\Entity\Pointerest $pointerestStop = null)
+    {
+        $this->pointerestStop = $pointerestStop;
+
+        return $this;
+    }
+
+    /**
+     * Get pointerestStop
+     *
+     * @return \WCS\LyonGameBundle\Entity\Pointerest
+     */
+    public function getPointerestStop()
+    {
+        return $this->pointerestStop;
     }
 }

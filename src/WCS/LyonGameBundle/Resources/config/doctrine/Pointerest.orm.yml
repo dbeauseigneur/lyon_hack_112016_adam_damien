@@ -178,4 +178,6 @@ WCS\LyonGameBundle\Entity\Pointerest:
             options:
                 fixed: false
             column: last_update_fme
+
+
     lifecycleCallbacks: {  }

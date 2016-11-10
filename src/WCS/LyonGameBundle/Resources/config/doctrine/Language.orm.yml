@@ -13,12 +13,9 @@ WCS\LyonGameBundle\Entity\Language:
             type: string
             length: '30'
 
-
-
-
     oneToMany:
-        trips:
-            targetEntity: Trip
+        tripEnglishs:
+            targetEntity: TripEnglish
             mappedBy: language
 
     lifecycleCallbacks: {  }
