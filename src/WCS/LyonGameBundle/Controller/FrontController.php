@@ -14,10 +14,18 @@ class FrontController extends Controller
 {
     public function unescoAction()
     {
+        $em = $this->getDoctrine()->getManager();
         return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
-           'trip_unesco'=> getTripUnesco () )
+           'trip_unesco'=> $em->getRepository('WCSLyonGameBundle:Trip')->getTripUnesco () )
         );
     }
 
+    public function pokemonGoAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
+                'trip_unesco'=> $em->getRepository('WCSLyonGameBundle:Trip')->getTripPokemonGo () )
+        );
+    }
 
 }

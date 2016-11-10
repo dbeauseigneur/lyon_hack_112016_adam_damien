@@ -16,4 +16,11 @@ class TripRepository extends \Doctrine\ORM\EntityRepository
         ;
         return $query->getResult();
     }
+
+    public function getTripPokemonGo () {
+        $query = $this->createQueryBuilder('t')
+            ->where("p.slug = 'pokemon-go'")
+        ;
+        return $query->getResult();
+    }
 }
