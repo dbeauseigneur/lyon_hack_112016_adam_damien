@@ -26,4 +26,5 @@ wcs_lyon_game_tripenglish:
     resource: "@WCSLyonGameBundle/Resources/config/routing/tripenglish.yml"
     prefix:   /tripenglish
 
-
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
