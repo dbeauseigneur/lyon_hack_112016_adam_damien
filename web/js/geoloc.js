@@ -4,15 +4,32 @@
 /*document.getElementById("contact_submit_forms").addEventListener("mouseover", myFunction);*/
 
 
-
-
 function inform(position) {
     $('#lat').val(position.coords.latitude);
     $('#lng').val(position.coords.longitude);
-    $('#localized').val('localisé')  ;
 
+    dist = distance(45.7542305, 4.8386187,position.coords.latitude,position.coords.longitude,'M' ) ;
+    if (dist <= 40) {
+        $('#localized').val('arrivé')  ;
+    } else {
+        $('#localized').val('localisé')  ;
+    }
 }
 
+function distance(lat1, lon1, lat2, lon2, unit) {
+    var radlat1 = Math.PI * lat1/180
+    var radlat2 = Math.PI * lat2/180
+    var theta = lon1-lon2
+    var radtheta = Math.PI * theta/180
+    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    dist = Math.acos(dist)
+    dist = dist * 180/Math.PI
+    dist = dist * 60 * 1.1515
+    if (unit=="K") { dist = dist * 1.609344 }
+    if (unit=="M") { dist = dist * 1609.344 }
+    if (unit=="N") { dist = dist * 0.8684 }
+    return dist
+}
 /*function erreurPosition(error) {
     var info = "Erreur lors de la géolocalisation : ";
     switch(error.code) {
@@ -32,40 +49,6 @@ function inform(position) {
     document.getElementById("infoposition").innerHTML = info;} */
 
 
-function success(position) {
-    var s = document.querySelector('#status');
-
-    if (s.className == 'success') {
-        // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back
-        return;
-    }
-
-    s.innerHTML = "found you!";
-    s.className = 'success';
-
-    var mapcanvas = document.createElement('div');
-    mapcanvas.id = 'mapcanvas';
-    mapcanvas.style.height = '400px';
-    mapcanvas.style.width = '560px';
-
-    document.querySelector('article').appendChild(mapcanvas);
-
-    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    var myOptions = {
-        zoom: 15,
-        center: latlng,
-        mapTypeControl: false,
-        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
-
-    var marker = new google.maps.Marker({
-        position: latlng,
-        map: map,
-        title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
-    });
-}
 
 function error(msg) {
     var s = document.querySelector('#status');
@@ -76,7 +59,7 @@ function error(msg) {
 }
 
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(inform, error);
+    navigator.geolocation.watchPosition(inform, error,{maximumAge:0,enableHighAccuracy:true});
 } else {
     error('not supported');
 }
