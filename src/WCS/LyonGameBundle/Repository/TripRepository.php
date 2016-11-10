@@ -10,4 +10,10 @@ namespace WCS\LyonGameBundle\Repository;
  */
 class TripRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getTripUnesco () {
+        $query = $this->createQueryBuilder('t')
+            ->where("p.slug = 'unesco'")
+        ;
+        return $query->getResult();
+    }
 }

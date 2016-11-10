@@ -8,12 +8,15 @@
 
 namespace WCS\LyonGameBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use WCS\LyonGameBundle\Repository\TripRepository;
 
 class FrontController extends Controller
 {
     public function unescoAction()
     {
-        return $this->render('WCSLyonGameBundle:Front:unesco.html.twig');
+        return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
+           'trip_unesco'=> getTripUnesco () )
+        );
     }
 
 
