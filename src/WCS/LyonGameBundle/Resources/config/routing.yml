@@ -2,6 +2,10 @@ wcs_lyon_game_language:
     resource: "@WCSLyonGameBundle/Resources/config/routing/language.yml"
     prefix:   /language
 
+wcs_lyon_game_test_geoloc:
+    path:     /test
+    defaults: { _controller: WCSLyonGameBundle:Default:testLoc }
+
 wcs_lyon_game_homepage:
     path:     /
     defaults: { _controller: WCSLyonGameBundle:Default:index }
