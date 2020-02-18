@@ -17,14 +17,14 @@ WCS\LyonGameBundle\Entity\TripEnglish:
     manyToOne:
         language:
             targetEntity: Language
-            inversedBy: tripEnglish
+            inversedBy: tripEnglishs
             joinColumn:
                 name: language_id
                 referencedColumnName: id
 
         trip:
             targetEntity: Trip
-            inversedBy: tripEnglish
+            inversedBy: tripEnglishs
             joinColumn:
                 name: trip_id
                 referencedColumnName: id

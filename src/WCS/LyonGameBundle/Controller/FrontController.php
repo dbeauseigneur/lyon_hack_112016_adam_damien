@@ -12,20 +12,6 @@ use WCS\LyonGameBundle\Repository\TripRepository;
 
 class FrontController extends Controller
 {
-    public function unescoAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
-           'trip_unesco'=> $em->getRepository('Trip')->getTripUnesco () )
-        );
-    }
 
-    public function pokemonGoAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
-            'trip_unesco'=> $em->getRepository('Trip')->getTripPokemonGo () )
-        );
-    }
 
 }

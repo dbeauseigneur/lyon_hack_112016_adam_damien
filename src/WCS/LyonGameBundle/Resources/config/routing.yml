@@ -7,8 +7,8 @@ wcs_lyon_game_test_geoloc:
     defaults: { _controller: WCSLyonGameBundle:Default:testLoc }
 
 wcs_lyon_game_front_unesco:
-    path:     /unesco
-    defaults: { _controller: WCSLyonGameBundle:Front:unesco }
+    path:     /{slug}
+    defaults: { _controller: "WCSLyonGameBundle:Trip:unesco" }
 
 wcs_lyon_game_homepage:
     path:     /lyon_game

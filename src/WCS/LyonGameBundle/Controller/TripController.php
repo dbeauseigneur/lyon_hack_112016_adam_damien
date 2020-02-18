@@ -17,25 +17,43 @@ class TripController extends Controller
      *
      */
     public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
+	{
+		$em = $this->getDoctrine()->getManager();
 
-        $trips = $em->getRepository('WCSLyonGameBundle:Trip')->findAll();
+		$trips = $em->getRepository('WCSLyonGameBundle:Trip')->findAll();
 
-        return $this->render('trip/index.html.twig', array(
-            'trips' => $trips,
-        ));
-    }
+		return $this->render('trip/index.html.twig', array(
+			'trips' => $trips,
+		));
+	}
 
-    /**
-     * Creates a new trip entity.
-     *
-     */
-    public function newAction(Request $request)
-    {
-        $trip = new Trip();
-        $form = $this->createForm('WCS\LyonGameBundle\Form\TripType', $trip);
-        $form->handleRequest($request);
+	public function unescoAction(Trip $trip)
+	{
+		$em = $this->getDoctrine()->getManager();
+		return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
+				'trip_unesco' => $em->getRepository('WCSLyonGameBundle:Trip')->getTripUnesco(),
+				/*'trip_unesco'=>'test',*/
+				'trip_gen' => $trip)
+		);
+	}
+
+	public function pokemonGoAction()
+	{
+		$em = $this->getDoctrine()->getManager();
+		return $this->render('WCSLyonGameBundle:Front:unesco.html.twig', array(
+				'trip_unesco' => $em->getRepository('WCSLyonGameBundle:Trip')->getTripPokemonGo())
+		);
+	}
+
+	/**
+	 * Creates a new trip entity.
+	 *
+	 */
+	public function newAction(Request $request)
+	{
+		$trip = new Trip();
+		$form = $this->createForm('WCS\LyonGameBundle\Form\TripType', $trip);
+		$form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();

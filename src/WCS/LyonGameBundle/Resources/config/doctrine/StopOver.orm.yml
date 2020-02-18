@@ -23,19 +23,17 @@ WCS\LyonGameBundle\Entity\StopOver:
     manyToMany:
         trips:
             targetEntity: Trip
-            mappedBy: stopovers
+            mappedBy: stopOvers
 
     manyToOne:
         pointerestStart:
             targetEntity: Pointerest
-            inversedBy: stopover
             joinColumn:
                 name: pointerest_start_id
                 referencedColumnName: id
 
         pointerestStop:
             targetEntity: Pointerest
-            inversedBy: stopover
             joinColumn:
                 name: pointerest_stop_id
                 referencedColumnName: id
