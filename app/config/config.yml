@@ -72,9 +72,9 @@ fos_user:
     registration:
         form:
             type: WCS\LyonGameBundle\Form\RegistrationType
-
-
-
+    from_email:
+        address: noreply@example.com
+        sender_name: Demo App
 
 services:
     twig.extension.intl:
