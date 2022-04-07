@@ -13,8 +13,9 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritdoc}
-     */
+	 * {@inheritdoc}
+	 * @return TreeBuilder the tree data
+	 */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();

@@ -11,7 +11,7 @@
  */
 
 if (!isset($_SERVER['HTTP_HOST'])) {
-    exit('This script cannot be run from the CLI. Run it from a browser.');
+    exit("This script cannot be run from the CLI. Run it from a browser.\n");
 }
 
 if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
@@ -250,47 +250,56 @@ $hasMinorProblems = (bool) count($minorProblems);
 
             /* styles copied from bundles/sensiodistribution/webconfigurator/css/install.css */
             body {
-                font-size: 14px;
-                font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-            }
-            .sf-reset h1.title {
-                font-size: 45px;
-                padding-bottom: 30px;
-            }
-            .sf-reset h2 {
-                font-weight: bold;
-                color: #FFFFFF;
-                /* Font is reset to sans-serif (like body) */
-                font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-                margin-bottom: 10px;
-                background-color: #aacd4e;
-                padding: 2px 4px;
-                display: inline-block;
-                text-transform: uppercase;
-            }
-            .sf-reset ul a,
-            .sf-reset ul a:hover {
-                background: url(../images/blue-arrow.png) no-repeat right 6px;
-                padding-right: 10px;
-            }
-            .sf-reset ul, ol {
-                padding-left: 20px;
-            }
-            .sf-reset li {
-                padding-bottom: 18px;
-            }
-            .sf-reset ol li {
-                list-style-type: decimal;
-            }
-            .sf-reset ul li {
-                list-style-type: none;
-            }
-            .sf-reset .symfony-blocks-install {
-                overflow: hidden;
-            }
-            .sf-reset .symfony-install-continue {
-                font-size: 0.95em;
-                padding-left: 0;
+				font-size: 14px;
+				font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+			}
+
+			.sf-reset h1.title {
+				font-size: 45px;
+				padding-bottom: 30px;
+			}
+
+			.sf-reset h2 {
+				font-weight: bold;
+				color: #FFFFFF;
+				/* Font is reset to sans-serif (like body) */
+				font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+				margin-bottom: 10px;
+				background-color: #aacd4e;
+				padding: 2px 4px;
+				display: inline-block;
+				text-transform: uppercase;
+			}
+
+			.sf-reset ul a,
+			.sf-reset ul a:hover {
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAICAYAAAAx8TU7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFdJREFUeNpiYACBjjOhDEiACSggCKTLgXQ5TJARqhIkcReIKxgqTGYxwvV0nDEGkmeAOIwJySiQ4HsgvseIpGo3ELsCtZ9lRDIvDCiwhwHJPEFkJwEEGACq6hdnax8y1AAAAABJRU5ErkJggg==) no-repeat right 7px;
+				padding-right: 10px;
+			}
+
+			.sf-reset ul, ol {
+				padding-left: 20px;
+			}
+
+			.sf-reset li {
+				padding-bottom: 18px;
+			}
+
+			.sf-reset ol li {
+				list-style-type: decimal;
+			}
+
+			.sf-reset ul li {
+				list-style-type: none;
+			}
+
+			.sf-reset .symfony-blocks-install {
+				overflow: hidden;
+			}
+
+			.sf-reset .symfony-install-continue {
+				font-size: 0.95em;
+				padding-left: 0;
             }
             .sf-reset .symfony-install-continue li {
                 padding-bottom: 10px;

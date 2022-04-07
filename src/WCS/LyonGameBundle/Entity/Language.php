@@ -2,7 +2,10 @@
 
 namespace WCS\LyonGameBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Language
  */
@@ -24,7 +27,7 @@ class Language
 	 *
 	 * @return int
 	 */
-	public function getId()
+	public function getId(): int
 	{
 		return $this->id;
 	}
@@ -36,7 +39,7 @@ class Language
 	 *
 	 * @return Language
 	 */
-	public function setLang($lang)
+	public function setLang(string $lang): Language
 	{
 		$this->lang = $lang;
 
@@ -48,13 +51,13 @@ class Language
 	 *
 	 * @return string
 	 */
-	public function getLang()
+	public function getLang(): string
 	{
 		return $this->lang;
 	}
 
 	/**
-	 * @var \Doctrine\Common\Collections\Collection
+	 * @var Collection
 	 */
 	private $users;
 
@@ -63,17 +66,17 @@ class Language
 	 */
 	public function __construct()
 	{
-		$this->users = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->users = new ArrayCollection();
 	}
 
 	/**
 	 * Add user
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\User $user
+	 * @param User $user
 	 *
 	 * @return Language
 	 */
-	public function addUser(\WCS\LyonGameBundle\Entity\User $user)
+	public function addUser(User $user): Language
 	{
 		$this->users[] = $user;
 
@@ -83,9 +86,9 @@ class Language
 	/**
 	 * Remove user
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\User $user
+	 * @param User $user
 	 */
-	public function removeUser(\WCS\LyonGameBundle\Entity\User $user)
+	public function removeUser(User $user)
 	{
 		$this->users->removeElement($user);
 	}
@@ -93,7 +96,7 @@ class Language
 	/**
 	 * Get users
 	 *
-	 * @return \Doctrine\Common\Collections\Collection
+	 * @return Collection
 	 */
 	public function getUsers()
 	{
@@ -102,7 +105,7 @@ class Language
 
 
 	/**
-	 * @var \Doctrine\Common\Collections\Collection
+	 * @var Collection
 	 */
 	private $tripEnglishs;
 
@@ -110,11 +113,11 @@ class Language
 	/**
 	 * Add tripEnglish
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish
+	 * @param TripEnglish $tripEnglish
 	 *
 	 * @return Language
 	 */
-	public function addTripEnglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish)
+	public function addTripEnglish(TripEnglish $tripEnglish): Language
 	{
 		$this->tripEnglishs[] = $tripEnglish;
 
@@ -124,9 +127,9 @@ class Language
 	/**
 	 * Remove tripEnglish
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish
+	 * @param TripEnglish $tripEnglish
 	 */
-	public function removeTripEnglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish)
+	public function removeTripEnglish(TripEnglish $tripEnglish)
 	{
 		$this->tripEnglishs->removeElement($tripEnglish);
 	}
@@ -134,9 +137,9 @@ class Language
 	/**
 	 * Get tripEnglishs
 	 *
-	 * @return \Doctrine\Common\Collections\Collection
+	 * @return Collection
 	 */
-	public function getTripEnglishs()
+	public function getTripEnglishs(): Collection
 	{
 		return $this->tripEnglishs;
 	}

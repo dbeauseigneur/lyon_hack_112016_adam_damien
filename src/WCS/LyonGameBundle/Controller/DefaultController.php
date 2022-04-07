@@ -28,21 +28,20 @@ class DefaultController extends Controller
 
     public function testLocAction ()
     {
-        if( isset($_REQUEST['lng']) )
-        {
-            $longitude = $_REQUEST['lng'];
-            $latitude = $_REQUEST['lat'];
-            $dist =  $this->getDistanceM(45.7542305, 4.8386187 ,floatval($latitude), floatval($longitude)); /*$longitude, $latitude);*/
-            if ($dist <= 30) {
-               $arrival = "arrived";
-            } else {
-               $arrival = "not now";
-            }
-        }else{
-            $longitude = "";
-            $latitude = "";
-            $arrival = "not now";
-        }
+        if (isset($_REQUEST['lng'])) {
+			$longitude = $_REQUEST['lng'];
+			$latitude = $_REQUEST['lat'];
+			$dist = $this->getDistanceM(45.7542305, 4.8386187, (float)$latitude, (float)$longitude); /*$longitude, $latitude);*/
+			if ($dist <= 30) {
+				$arrival = "arrived";
+			} else {
+				$arrival = "not now";
+			}
+		} else {
+			$longitude = "";
+			$latitude = "";
+			$arrival = "not now";
+		}
 
         return $this->render('front/testloc.html.twig',array(
         'longitude' => $longitude,

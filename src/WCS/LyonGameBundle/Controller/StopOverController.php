@@ -2,7 +2,10 @@
 
 namespace WCS\LyonGameBundle\Controller;
 
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use WCS\LyonGameBundle\Entity\StopOver;
+use WCS\LyonGameBundle\Form\StopOverType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -12,113 +15,112 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class StopOverController extends Controller
 {
-    /**
-     * Lists all stopOver entities.
-     *
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
+	/**
+	 * Lists all stopOver entities.
+	 *
+	 */
+	public function indexAction()
+	{
+		$em = $this->getDoctrine()->getManager();
 
-        $stopOvers = $em->getRepository('WCSLyonGameBundle:StopOver')->findAll();
+		$stopOvers = $em->getRepository('WCSLyonGameBundle:StopOver')->findAll();
 
-        return $this->render('stopover/index.html.twig', array(
-            'stopOvers' => $stopOvers,
-        ));
-    }
+		return $this->render('stopover/index.html.twig', array(
+			'stopOvers' => $stopOvers,
+		));
+	}
 
-    /**
-     * Creates a new stopOver entity.
-     *
-     */
-    public function newAction(Request $request)
-    {
-        $stopOver = new Stopover();
-        $form = $this->createForm('WCS\LyonGameBundle\Form\StopOverType', $stopOver);
-        $form->handleRequest($request);
+	/**
+	 * Creates a new stopOver entity.
+	 *
+	 */
+	public function newAction(Request $request)
+	{
+		$stopOver = new Stopover();
+		$form = $this->createForm(StopOverType::class, $stopOver);
+		$form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($stopOver);
-            $em->flush($stopOver);
+		if ($form->isSubmitted() && $form->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($stopOver);
+			$em->flush($stopOver);
 
-            return $this->redirectToRoute('stopover_show', array('id' => $stopOver->getId()));
-        }
+			return $this->redirectToRoute('stopover_show', array('id' => $stopOver->getId()));
+		}
 
-        return $this->render('stopover/new.html.twig', array(
-            'stopOver' => $stopOver,
-            'form' => $form->createView(),
-        ));
-    }
+		return $this->render('stopover/new.html.twig', array(
+			'stopOver' => $stopOver,
+			'form' => $form->createView(),
+		));
+	}
 
-    /**
-     * Finds and displays a stopOver entity.
-     *
-     */
-    public function showAction(StopOver $stopOver)
-    {
-        $deleteForm = $this->createDeleteForm($stopOver);
+	/**
+	 * Finds and displays a stopOver entity.
+	 *
+	 */
+	public function showAction(StopOver $stopOver)
+	{
+		$deleteForm = $this->createDeleteForm($stopOver);
 
-        return $this->render('stopover/show.html.twig', array(
-            'stopOver' => $stopOver,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
+		return $this->render('stopover/show.html.twig', array(
+			'stopOver' => $stopOver,
+			'delete_form' => $deleteForm->createView(),
+		));
+	}
 
-    /**
-     * Displays a form to edit an existing stopOver entity.
-     *
-     */
-    public function editAction(Request $request, StopOver $stopOver)
-    {
-        $deleteForm = $this->createDeleteForm($stopOver);
-        $editForm = $this->createForm('WCS\LyonGameBundle\Form\StopOverType', $stopOver);
-        $editForm->handleRequest($request);
+	/**
+	 * Displays a form to edit an existing stopOver entity.
+	 *
+	 */
+	public function editAction(Request $request, StopOver $stopOver)
+	{
+		$deleteForm = $this->createDeleteForm($stopOver);
+		$editForm = $this->createForm(StopOverType::class, $stopOver);
+		$editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+		if ($editForm->isSubmitted() && $editForm->isValid()) {
+			$this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('stopover_edit', array('id' => $stopOver->getId()));
-        }
+			return $this->redirectToRoute('stopover_edit', array('id' => $stopOver->getId()));
+		}
 
-        return $this->render('stopover/edit.html.twig', array(
-            'stopOver' => $stopOver,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
+		return $this->render('stopover/edit.html.twig', array(
+			'stopOver' => $stopOver,
+			'edit_form' => $editForm->createView(),
+			'delete_form' => $deleteForm->createView(),
+		));
+	}
 
-    /**
-     * Deletes a stopOver entity.
-     *
-     */
-    public function deleteAction(Request $request, StopOver $stopOver)
-    {
-        $form = $this->createDeleteForm($stopOver);
-        $form->handleRequest($request);
+	/**
+	 * Deletes a stopOver entity.
+	 *
+	 */
+	public function deleteAction(Request $request, StopOver $stopOver): RedirectResponse
+	{
+		$form = $this->createDeleteForm($stopOver);
+		$form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($stopOver);
-            $em->flush($stopOver);
-        }
+		if ($form->isSubmitted() && $form->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->remove($stopOver);
+			$em->flush($stopOver);
+		}
 
-        return $this->redirectToRoute('stopover_index');
-    }
+		return $this->redirectToRoute('stopover_index');
+	}
 
-    /**
-     * Creates a form to delete a stopOver entity.
-     *
-     * @param StopOver $stopOver The stopOver entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(StopOver $stopOver)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('stopover_delete', array('id' => $stopOver->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
+	/**
+	 * Creates a form to delete a stopOver entity.
+	 *
+	 * @param StopOver $stopOver The stopOver entity
+	 *
+	 * @return FormInterface The form
+	 */
+	private function createDeleteForm(StopOver $stopOver): FormInterface
+	{
+		return $this->createFormBuilder()
+			->setAction($this->generateUrl('stopover_delete', array('id' => $stopOver->getId())))
+			->setMethod('DELETE')
+			->getForm();
+	}
 }

@@ -24,7 +24,7 @@ class TripEnglish
 	 *
 	 * @return int
 	 */
-	public function getId()
+	public function getId(): int
 	{
 		return $this->id;
 	}
@@ -36,7 +36,7 @@ class TripEnglish
 	 *
 	 * @return TripEnglish
 	 */
-	public function setTripName($tripName)
+	public function setTripName(string $tripName): TripEnglish
 	{
 		$this->tripName = $tripName;
 
@@ -48,13 +48,13 @@ class TripEnglish
 	 *
 	 * @return string
 	 */
-	public function getTripName()
+	public function getTripName(): string
 	{
 		return $this->tripName;
 	}
 
 	/**
-	 * @var \WCS\LyonGameBundle\Entity\Trip
+	 * @var Trip
 	 */
 	private $trip;
 
@@ -62,11 +62,11 @@ class TripEnglish
 	/**
 	 * Set trip
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\Trip $trip
+	 * @param Trip $trip
 	 *
 	 * @return TripEnglish
 	 */
-	public function setTrip(\WCS\LyonGameBundle\Entity\Trip $trip = null)
+	public function setTrip(Trip $trip = null): TripEnglish
 	{
 		$this->trip = $trip;
 
@@ -76,15 +76,15 @@ class TripEnglish
 	/**
 	 * Get trip
 	 *
-	 * @return \WCS\LyonGameBundle\Entity\Trip
+	 * @return Trip
 	 */
-	public function getTrip()
+	public function getTrip(): Trip
 	{
 		return $this->trip;
 	}
 
 	/**
-	 * @var \WCS\LyonGameBundle\Entity\Language
+	 * @var Language
 	 */
 	private $language;
 
@@ -92,11 +92,11 @@ class TripEnglish
 	/**
 	 * Set language
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\Language $language
+	 * @param Language $language
 	 *
 	 * @return TripEnglish
 	 */
-	public function setLanguage(\WCS\LyonGameBundle\Entity\Language $language = null)
+	public function setLanguage(Language $language = null): TripEnglish
 	{
 		$this->language = $language;
 
@@ -106,9 +106,9 @@ class TripEnglish
 	/**
 	 * Get language
 	 *
-	 * @return \WCS\LyonGameBundle\Entity\Language
+	 * @return Language
 	 */
-	public function getLanguage()
+	public function getLanguage(): Language
 	{
 		return $this->language;
 	}

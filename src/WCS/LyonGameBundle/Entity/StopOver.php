@@ -2,7 +2,10 @@
 
 namespace WCS\LyonGameBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * StopOver
  */
@@ -39,7 +42,7 @@ class StopOver
 	 *
 	 * @return int
 	 */
-	public function getId()
+	public function getId(): int
 	{
 		return $this->id;
 	}
@@ -51,7 +54,7 @@ class StopOver
 	 *
 	 * @return StopOver
 	 */
-	public function setSequence($sequence)
+	public function setSequence(int $sequence): StopOver
 	{
 		$this->sequence = $sequence;
 
@@ -63,7 +66,7 @@ class StopOver
 	 *
 	 * @return int
 	 */
-	public function getSequence()
+	public function getSequence(): int
 	{
 		return $this->sequence;
 	}
@@ -75,7 +78,7 @@ class StopOver
 	 *
 	 * @return StopOver
 	 */
-	public function setCost($cost)
+	public function setCost(int $cost): StopOver
 	{
 		$this->cost = $cost;
 
@@ -87,7 +90,7 @@ class StopOver
 	 *
 	 * @return int
 	 */
-	public function getCost()
+	public function getCost(): int
 	{
 		return $this->cost;
 	}
@@ -99,7 +102,7 @@ class StopOver
 	 *
 	 * @return StopOver
 	 */
-	public function setDuration($duration)
+	public function setDuration(string $duration): StopOver
 	{
 		$this->duration = $duration;
 
@@ -111,7 +114,7 @@ class StopOver
 	 *
 	 * @return string
 	 */
-	public function getDuration()
+	public function getDuration(): string
 	{
 		return $this->duration;
 	}
@@ -123,7 +126,7 @@ class StopOver
 	 *
 	 * @return StopOver
 	 */
-	public function setDirective($directive)
+	public function setDirective(string $directive): StopOver
 	{
 		$this->directive = $directive;
 
@@ -135,13 +138,13 @@ class StopOver
 	 *
 	 * @return string
 	 */
-	public function getDirective()
+	public function getDirective(): string
 	{
 		return $this->directive;
 	}
 
 	/**
-	 * @var \Doctrine\Common\Collections\Collection
+	 * @var Collection
 	 */
 	private $trips;
 
@@ -150,17 +153,17 @@ class StopOver
 	 */
 	public function __construct()
 	{
-		$this->trips = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->trips = new ArrayCollection();
 	}
 
 	/**
 	 * Add trip
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\Trip $trip
+	 * @param Trip $trip
 	 *
 	 * @return StopOver
 	 */
-	public function addTrip(\WCS\LyonGameBundle\Entity\Trip $trip)
+	public function addTrip(Trip $trip): StopOver
 	{
 		$this->trips[] = $trip;
 
@@ -170,9 +173,9 @@ class StopOver
 	/**
 	 * Remove trip
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\Trip $trip
+	 * @param Trip $trip
 	 */
-	public function removeTrip(\WCS\LyonGameBundle\Entity\Trip $trip)
+	public function removeTrip(Trip $trip)
 	{
 		$this->trips->removeElement($trip);
 	}
@@ -180,7 +183,7 @@ class StopOver
 	/**
 	 * Get trips
 	 *
-	 * @return \Doctrine\Common\Collections\Collection
+	 * @return Collection
 	 */
 	public function getTrips()
 	{
@@ -188,12 +191,12 @@ class StopOver
 	}
 
 	/**
-	 * @var \WCS\LyonGameBundle\Entity\Pointerest
+	 * @var Pointerest
 	 */
 	private $pointerestStart;
 
 	/**
-	 * @var \WCS\LyonGameBundle\Entity\Pointerest
+	 * @var Pointerest
 	 */
 	private $pointerestStop;
 
@@ -201,11 +204,11 @@ class StopOver
 	/**
 	 * Set pointerestStart
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\Pointerest $pointerestStart
+	 * @param Pointerest $pointerestStart
 	 *
 	 * @return StopOver
 	 */
-	public function setPointerestStart(\WCS\LyonGameBundle\Entity\Pointerest $pointerestStart = null)
+	public function setPointerestStart(Pointerest $pointerestStart = null): StopOver
 	{
 		$this->pointerestStart = $pointerestStart;
 
@@ -215,9 +218,9 @@ class StopOver
 	/**
 	 * Get pointerestStart
 	 *
-	 * @return \WCS\LyonGameBundle\Entity\Pointerest
+	 * @return Pointerest
 	 */
-	public function getPointerestStart()
+	public function getPointerestStart(): Pointerest
 	{
 		return $this->pointerestStart;
 	}
@@ -225,11 +228,11 @@ class StopOver
 	/**
 	 * Set pointerestStop
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\Pointerest $pointerestStop
+	 * @param Pointerest $pointerestStop
 	 *
 	 * @return StopOver
 	 */
-	public function setPointerestStop(\WCS\LyonGameBundle\Entity\Pointerest $pointerestStop = null)
+	public function setPointerestStop(Pointerest $pointerestStop = null): StopOver
 	{
 		$this->pointerestStop = $pointerestStop;
 
@@ -239,9 +242,9 @@ class StopOver
 	/**
 	 * Get pointerestStop
 	 *
-	 * @return \WCS\LyonGameBundle\Entity\Pointerest
+	 * @return Pointerest
 	 */
-	public function getPointerestStop()
+	public function getPointerestStop(): Pointerest
 	{
 		return $this->pointerestStop;
 	}

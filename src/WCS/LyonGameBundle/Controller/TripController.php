@@ -2,9 +2,12 @@
 
 namespace WCS\LyonGameBundle\Controller;
 
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use WCS\LyonGameBundle\Entity\Trip;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use WCS\LyonGameBundle\Form\TripType;
 
 /**
  * Trip controller.
@@ -12,11 +15,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class TripController extends Controller
 {
-    /**
-     * Lists all trip entities.
-     *
-     */
-    public function indexAction()
+	/**
+	 * Lists all trip entities.
+	 *
+	 */
+	public function indexAction()
 	{
 		$em = $this->getDoctrine()->getManager();
 
@@ -52,91 +55,90 @@ class TripController extends Controller
 	public function newAction(Request $request)
 	{
 		$trip = new Trip();
-		$form = $this->createForm('WCS\LyonGameBundle\Form\TripType', $trip);
+		$form = $this->createForm(TripType::class, $trip);
 		$form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($trip);
-            $em->flush($trip);
+		if ($form->isSubmitted() && $form->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($trip);
+			$em->flush($trip);
 
-            return $this->redirectToRoute('trip_show', array('id' => $trip->getId()));
-        }
+			return $this->redirectToRoute('trip_show', array('id' => $trip->getId()));
+		}
 
-        return $this->render('trip/new.html.twig', array(
-            'trip' => $trip,
-            'form' => $form->createView(),
-        ));
-    }
+		return $this->render('trip/new.html.twig', array(
+			'trip' => $trip,
+			'form' => $form->createView(),
+		));
+	}
 
-    /**
-     * Finds and displays a trip entity.
-     *
-     */
-    public function showAction(Trip $trip)
-    {
-        $deleteForm = $this->createDeleteForm($trip);
+	/**
+	 * Finds and displays a trip entity.
+	 *
+	 */
+	public function showAction(Trip $trip)
+	{
+		$deleteForm = $this->createDeleteForm($trip);
 
-        return $this->render('trip/show.html.twig', array(
-            'trip' => $trip,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
+		return $this->render('trip/show.html.twig', array(
+			'trip' => $trip,
+			'delete_form' => $deleteForm->createView(),
+		));
+	}
 
-    /**
-     * Displays a form to edit an existing trip entity.
-     *
-     */
-    public function editAction(Request $request, Trip $trip)
-    {
-        $deleteForm = $this->createDeleteForm($trip);
-        $editForm = $this->createForm('WCS\LyonGameBundle\Form\TripType', $trip);
-        $editForm->handleRequest($request);
+	/**
+	 * Displays a form to edit an existing trip entity.
+	 *
+	 */
+	public function editAction(Request $request, Trip $trip)
+	{
+		$deleteForm = $this->createDeleteForm($trip);
+		$editForm = $this->createForm(TripType::class, $trip);
+		$editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+		if ($editForm->isSubmitted() && $editForm->isValid()) {
+			$this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('trip_edit', array('id' => $trip->getId()));
-        }
+			return $this->redirectToRoute('trip_edit', array('id' => $trip->getId()));
+		}
 
-        return $this->render('trip/edit.html.twig', array(
-            'trip' => $trip,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
+		return $this->render('trip/edit.html.twig', array(
+			'trip' => $trip,
+			'edit_form' => $editForm->createView(),
+			'delete_form' => $deleteForm->createView(),
+		));
+	}
 
-    /**
-     * Deletes a trip entity.
-     *
-     */
-    public function deleteAction(Request $request, Trip $trip)
-    {
-        $form = $this->createDeleteForm($trip);
-        $form->handleRequest($request);
+	/**
+	 * Deletes a trip entity.
+	 *
+	 */
+	public function deleteAction(Request $request, Trip $trip): RedirectResponse
+	{
+		$form = $this->createDeleteForm($trip);
+		$form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($trip);
-            $em->flush($trip);
-        }
+		if ($form->isSubmitted() && $form->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->remove($trip);
+			$em->flush($trip);
+		}
 
-        return $this->redirectToRoute('trip_index');
-    }
+		return $this->redirectToRoute('trip_index');
+	}
 
-    /**
-     * Creates a form to delete a trip entity.
-     *
-     * @param Trip $trip The trip entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Trip $trip)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('trip_delete', array('id' => $trip->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
+	/**
+	 * Creates a form to delete a trip entity.
+	 *
+	 * @param Trip $trip The trip entity
+	 *
+	 * @return FormInterface The form
+	 */
+	private function createDeleteForm(Trip $trip): FormInterface
+	{
+		return $this->createFormBuilder()
+			->setAction($this->generateUrl('trip_delete', array('id' => $trip->getId())))
+			->setMethod('DELETE')
+			->getForm();
+	}
 }

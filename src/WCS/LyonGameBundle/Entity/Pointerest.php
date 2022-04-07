@@ -154,7 +154,7 @@ class Pointerest
 	 *
 	 * @return integer
 	 */
-	public function getId()
+	public function getId(): int
 	{
 		return $this->id;
 	}
@@ -166,7 +166,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setLatitude($latitude)
+	public function setLatitude(string $latitude): Pointerest
 	{
 		$this->latitude = $latitude;
 
@@ -178,7 +178,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getLatitude()
+	public function getLatitude(): string
 	{
 		return $this->latitude;
 	}
@@ -190,7 +190,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setLongitude($longitude)
+	public function setLongitude(string $longitude): Pointerest
 	{
 		$this->longitude = $longitude;
 
@@ -202,7 +202,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getLongitude()
+	public function getLongitude(): string
 	{
 		return $this->longitude;
 	}
@@ -214,7 +214,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setAltitude($altitude)
+	public function setAltitude(string $altitude): Pointerest
 	{
 		$this->altitude = $altitude;
 
@@ -226,7 +226,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getAltitude()
+	public function getAltitude(): string
 	{
 		return $this->altitude;
 	}
@@ -238,7 +238,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setGeometry($geometry)
+	public function setGeometry($geometry): Pointerest
 	{
 		$this->geometry = $geometry;
 
@@ -250,7 +250,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getGeometry()
+	public function getGeometry(): string
 	{
 		return $this->geometry;
 	}
@@ -262,7 +262,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setIdSitra1($idSitra1)
+	public function setIdSitra1(string $idSitra1): Pointerest
 	{
 		$this->idSitra1 = $idSitra1;
 
@@ -274,7 +274,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getIdSitra1()
+	public function getIdSitra1(): string
 	{
 		return $this->idSitra1;
 	}
@@ -286,7 +286,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setType($type)
+	public function setType(string $type): Pointerest
 	{
 		$this->type = $type;
 
@@ -298,7 +298,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getType()
+	public function getType(): string
 	{
 		return $this->type;
 	}
@@ -310,7 +310,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setTypeDetail($typeDetail)
+	public function setTypeDetail(string $typeDetail): Pointerest
 	{
 		$this->typeDetail = $typeDetail;
 
@@ -322,7 +322,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getTypeDetail()
+	public function getTypeDetail(): string
 	{
 		return $this->typeDetail;
 	}
@@ -334,7 +334,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setNom($nom)
+	public function setNom(string $nom): Pointerest
 	{
 		$this->nom = $nom;
 
@@ -346,7 +346,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getNom()
+	public function getNom(): string
 	{
 		return $this->nom;
 	}
@@ -358,7 +358,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setAdresse($adresse)
+	public function setAdresse(string $adresse): Pointerest
 	{
 		$this->adresse = $adresse;
 
@@ -370,7 +370,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getAdresse()
+	public function getAdresse(): string
 	{
 		return $this->adresse;
 	}
@@ -382,7 +382,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setCodepostal($codepostal)
+	public function setCodepostal(int $codepostal): Pointerest
 	{
 		$this->codepostal = $codepostal;
 
@@ -394,7 +394,7 @@ class Pointerest
 	 *
 	 * @return integer
 	 */
-	public function getCodepostal()
+	public function getCodepostal(): int
 	{
 		return $this->codepostal;
 	}
@@ -406,7 +406,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setCommune($commune)
+	public function setCommune(string $commune): Pointerest
 	{
 		$this->commune = $commune;
 
@@ -418,7 +418,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getCommune()
+	public function getCommune(): string
 	{
 		return $this->commune;
 	}
@@ -430,7 +430,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setTelephone($telephone)
+	public function setTelephone(string $telephone): Pointerest
 	{
 		$this->telephone = $telephone;
 
@@ -442,7 +442,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getTelephone()
+	public function getTelephone(): string
 	{
 		return $this->telephone;
 	}
@@ -454,7 +454,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setFax($fax)
+	public function setFax(string $fax): Pointerest
 	{
 		$this->fax = $fax;
 
@@ -466,7 +466,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getFax()
+	public function getFax(): string
 	{
 		return $this->fax;
 	}
@@ -478,7 +478,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setTelephonefax($telephonefax)
+	public function setTelephonefax(string $telephonefax): Pointerest
 	{
 		$this->telephonefax = $telephonefax;
 
@@ -490,7 +490,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getTelephonefax()
+	public function getTelephonefax(): string
 	{
 		return $this->telephonefax;
 	}
@@ -502,7 +502,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setEmail($email)
+	public function setEmail(string $email): Pointerest
 	{
 		$this->email = $email;
 
@@ -514,7 +514,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getEmail()
+	public function getEmail(): string
 	{
 		return $this->email;
 	}
@@ -526,7 +526,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setSiteweb($siteweb)
+	public function setSiteweb(string $siteweb): Pointerest
 	{
 		$this->siteweb = $siteweb;
 
@@ -538,7 +538,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getSiteweb()
+	public function getSiteweb(): string
 	{
 		return $this->siteweb;
 	}
@@ -550,7 +550,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setFacebook($facebook)
+	public function setFacebook(string $facebook): Pointerest
 	{
 		$this->facebook = $facebook;
 
@@ -562,7 +562,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getFacebook()
+	public function getFacebook(): string
 	{
 		return $this->facebook;
 	}
@@ -574,7 +574,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setClassement($classement)
+	public function setClassement(string $classement): Pointerest
 	{
 		$this->classement = $classement;
 
@@ -586,7 +586,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getClassement()
+	public function getClassement(): string
 	{
 		return $this->classement;
 	}
@@ -598,7 +598,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setOuverture($ouverture)
+	public function setOuverture(string $ouverture): Pointerest
 	{
 		$this->ouverture = $ouverture;
 
@@ -610,7 +610,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getOuverture()
+	public function getOuverture(): string
 	{
 		return $this->ouverture;
 	}
@@ -622,7 +622,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setTarifsenclair($tarifsenclair)
+	public function setTarifsenclair(string $tarifsenclair): Pointerest
 	{
 		$this->tarifsenclair = $tarifsenclair;
 
@@ -634,7 +634,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getTarifsenclair()
+	public function getTarifsenclair(): string
 	{
 		return $this->tarifsenclair;
 	}
@@ -646,7 +646,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setTarifsmin($tarifsmin)
+	public function setTarifsmin(string $tarifsmin): Pointerest
 	{
 		$this->tarifsmin = $tarifsmin;
 
@@ -658,7 +658,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getTarifsmin()
+	public function getTarifsmin(): string
 	{
 		return $this->tarifsmin;
 	}
@@ -670,7 +670,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setTarifsmax($tarifsmax)
+	public function setTarifsmax(string $tarifsmax): Pointerest
 	{
 		$this->tarifsmax = $tarifsmax;
 
@@ -682,7 +682,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getTarifsmax()
+	public function getTarifsmax(): string
 	{
 		return $this->tarifsmax;
 	}
@@ -694,7 +694,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setProducteur($producteur)
+	public function setProducteur(string $producteur): Pointerest
 	{
 		$this->producteur = $producteur;
 
@@ -706,7 +706,7 @@ class Pointerest
 	 *
 	 * @return string
 	 */
-	public function getProducteur()
+	public function getProducteur(): string
 	{
 		return $this->producteur;
 	}
@@ -718,7 +718,7 @@ class Pointerest
 	 *
 	 * @return Pointerest
 	 */
-	public function setGid($gid)
+	public function setGid($gid): Pointerest
 	{
 		$this->gid = $gid;
 

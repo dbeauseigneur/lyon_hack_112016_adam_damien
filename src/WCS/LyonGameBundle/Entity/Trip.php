@@ -2,7 +2,10 @@
 
 namespace WCS\LyonGameBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Trip
  */
@@ -34,7 +37,7 @@ class Trip
 	 *
 	 * @return int
 	 */
-	public function getId()
+	public function getId(): int
 	{
 		return $this->id;
 	}
@@ -46,7 +49,7 @@ class Trip
 	 *
 	 * @return Trip
 	 */
-	public function setCost($cost)
+	public function setCost(string $cost): Trip
 	{
 		$this->cost = $cost;
 
@@ -58,7 +61,7 @@ class Trip
 	 *
 	 * @return string
 	 */
-	public function getCost()
+	public function getCost(): string
 	{
 		return $this->cost;
 	}
@@ -70,7 +73,7 @@ class Trip
 	 *
 	 * @return Trip
 	 */
-	public function setDuration($duration)
+	public function setDuration(string $duration): Trip
 	{
 		$this->duration = $duration;
 
@@ -82,7 +85,7 @@ class Trip
 	 *
 	 * @return string
 	 */
-	public function getDuration()
+	public function getDuration(): string
 	{
 		return $this->duration;
 	}
@@ -94,7 +97,7 @@ class Trip
 	 *
 	 * @return Trip
 	 */
-	public function setSlug($slug)
+	public function setSlug(string $slug): Trip
 	{
 		$this->slug = $slug;
 
@@ -106,13 +109,13 @@ class Trip
 	 *
 	 * @return string
 	 */
-	public function getSlug()
+	public function getSlug(): string
 	{
 		return $this->slug;
 	}
 
 	/**
-	 * @var \Doctrine\Common\Collections\Collection
+	 * @var Collection
 	 */
 	private $users;
 
@@ -121,19 +124,19 @@ class Trip
 	 */
 	public function __construct()
 	{
-		$this->tripEnglish = new \Doctrine\Common\Collections\ArrayCollection();
-		$this->users = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->tripEnglish = new ArrayCollection();
+		$this->users = new ArrayCollection();
 	}
 
 
 	/**
 	 * Add user
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\User $user
+	 * @param User $user
 	 *
 	 * @return Trip
 	 */
-	public function addUser(\WCS\LyonGameBundle\Entity\User $user)
+	public function addUser(User $user): Trip
 	{
 		$this->users[] = $user;
 
@@ -143,9 +146,9 @@ class Trip
 	/**
 	 * Remove user
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\User $user
+	 * @param User $user
 	 */
-	public function removeUser(\WCS\LyonGameBundle\Entity\User $user)
+	public function removeUser(User $user)
 	{
 		$this->users->removeElement($user);
 	}
@@ -153,7 +156,7 @@ class Trip
 	/**
 	 * Get users
 	 *
-	 * @return \Doctrine\Common\Collections\Collection
+	 * @return Collection
 	 */
 	public function getUsers()
 	{
@@ -161,7 +164,7 @@ class Trip
 	}
 
 	/**
-	 * @var \Doctrine\Common\Collections\Collection
+	 * @var Collection
 	 */
 	private $stopOvers;
 
@@ -169,11 +172,11 @@ class Trip
 	/**
 	 * Add stopOver
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\StopOver $stopOver
+	 * @param StopOver $stopOver
 	 *
 	 * @return Trip
 	 */
-	public function addStopOver(\WCS\LyonGameBundle\Entity\StopOver $stopOver)
+	public function addStopOver(StopOver $stopOver): Trip
 	{
 		$this->stopOvers[] = $stopOver;
 
@@ -183,9 +186,9 @@ class Trip
 	/**
 	 * Remove stopOver
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\StopOver $stopOver
+	 * @param StopOver $stopOver
 	 */
-	public function removeStopOver(\WCS\LyonGameBundle\Entity\StopOver $stopOver)
+	public function removeStopOver(StopOver $stopOver)
 	{
 		$this->stopOvers->removeElement($stopOver);
 	}
@@ -193,15 +196,15 @@ class Trip
 	/**
 	 * Get stopOvers
 	 *
-	 * @return \Doctrine\Common\Collections\Collection
+	 * @return Collection
 	 */
-	public function getStopOvers()
+	public function getStopOvers(): Collection
 	{
 		return $this->stopOvers;
 	}
 
 	/**
-	 * @var \Doctrine\Common\Collections\Collection
+	 * @var Collection
 	 */
 	private $tripEnglishs;
 
@@ -209,9 +212,9 @@ class Trip
 	/**
 	 * Get tripEnglishs
 	 *
-	 * @return \Doctrine\Common\Collections\Collection
+	 * @return Collection
 	 */
-	public function getTripEnglishs()
+	public function getTripEnglishs(): Collection
 	{
 		return $this->tripEnglishs;
 	}
@@ -219,11 +222,11 @@ class Trip
 	/**
 	 * Add tripEnglish
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish
+	 * @param TripEnglish $tripEnglish
 	 *
 	 * @return Trip
 	 */
-	public function addTripEnglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish)
+	public function addTripEnglish(TripEnglish $tripEnglish): Trip
 	{
 		$this->tripEnglishs[] = $tripEnglish;
 
@@ -233,9 +236,9 @@ class Trip
 	/**
 	 * Remove tripEnglish
 	 *
-	 * @param \WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish
+	 * @param TripEnglish $tripEnglish
 	 */
-	public function removeTripEnglish(\WCS\LyonGameBundle\Entity\TripEnglish $tripEnglish)
+	public function removeTripEnglish(TripEnglish $tripEnglish)
 	{
 		$this->tripEnglishs->removeElement($tripEnglish);
 	}

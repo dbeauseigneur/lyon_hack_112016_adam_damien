@@ -387,20 +387,20 @@ class SymfonyRequirements extends RequirementCollection
      */
     public function __construct()
     {
-        /* mandatory requirements follow */
+		/* mandatory requirements follow */
 
-        $installedPhpVersion = phpversion();
-        $requiredPhpVersion = $this->getPhpRequiredVersion();
+		$installedPhpVersion = PHP_VERSION;
+		$requiredPhpVersion = $this->getPhpRequiredVersion();
 
-        $this->addRecommendation(
-            $requiredPhpVersion,
-            'Vendors should be installed in order to check all requirements.',
-            'Run the <code>composer install</code> command.',
-            'Run the "composer install" command.'
-        );
+		$this->addRecommendation(
+			$requiredPhpVersion,
+			'Vendors should be installed in order to check all requirements.',
+			'Run the <code>composer install</code> command.',
+			'Run the "composer install" command.'
+		);
 
-        if (false !== $requiredPhpVersion) {
-            $this->addRequirement(
+		if (false !== $requiredPhpVersion) {
+			$this->addRequirement(
                 version_compare($installedPhpVersion, $requiredPhpVersion, '>='),
                 sprintf('PHP version must be at least %s (%s installed)', $requiredPhpVersion, $installedPhpVersion),
                 sprintf('You are running PHP version "<strong>%s</strong>", but Symfony needs at least PHP "<strong>%s</strong>" to run.
@@ -448,18 +448,11 @@ class SymfonyRequirements extends RequirementCollection
         }
 
         if (false !== $requiredPhpVersion && version_compare($installedPhpVersion, $requiredPhpVersion, '>=')) {
-            $timezones = array();
-            foreach (DateTimeZone::listAbbreviations() as $abbreviations) {
-                foreach ($abbreviations as $abbreviation) {
-                    $timezones[$abbreviation['timezone_id']] = true;
-                }
-            }
-
-            $this->addRequirement(
-                isset($timezones[@date_default_timezone_get()]),
-                sprintf('Configured default timezone "%s" must be supported by your installation of PHP', @date_default_timezone_get()),
-                'Your default timezone is not supported by PHP. Check for typos in your <strong>php.ini</strong> file and have a look at the list of deprecated timezones at <a href="http://php.net/manual/en/timezones.others.php">http://php.net/manual/en/timezones.others.php</a>.'
-            );
+			$this->addRequirement(
+				in_array(@date_default_timezone_get(), DateTimeZone::listIdentifiers(), true),
+				sprintf('Configured default timezone "%s" must be supported by your installation of PHP', @date_default_timezone_get()),
+				'Your default timezone is not supported by PHP. Check for typos in your <strong>php.ini</strong> file and have a look at the list of deprecated timezones at <a href="http://php.net/manual/en/timezones.others.php">http://php.net/manual/en/timezones.others.php</a>.'
+			);
         }
 
         $this->addRequirement(
@@ -634,12 +627,6 @@ class SymfonyRequirements extends RequirementCollection
         );
 
         $this->addRecommendation(
-            function_exists('iconv'),
-            'iconv() should be available',
-            'Install and enable the <strong>iconv</strong> extension.'
-        );
-
-        $this->addRecommendation(
             function_exists('utf8_decode'),
             'utf8_decode() should be available',
             'Install and enable the <strong>XML</strong> extension.'
@@ -727,33 +714,32 @@ class SymfonyRequirements extends RequirementCollection
             (extension_loaded('Zend OPcache') && ini_get('opcache.enable'))
             ||
             (extension_loaded('xcache') && ini_get('xcache.cacher'))
-            ||
-            (extension_loaded('wincache') && ini_get('wincache.ocenabled'))
-        ;
+			||
+			(extension_loaded('wincache') && ini_get('wincache.ocenabled'));
 
-        $this->addRecommendation(
-            $accelerator,
-            'a PHP accelerator should be installed',
-            'Install and/or enable a <strong>PHP accelerator</strong> (highly recommended).'
-        );
+		$this->addRecommendation(
+			$accelerator,
+			'a PHP accelerator should be installed',
+			'Install and/or enable a <strong>PHP accelerator</strong> (highly recommended).'
+		);
 
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            $this->addRecommendation(
-                $this->getRealpathCacheSize() >= 5 * 1024 * 1024,
-                'realpath_cache_size should be at least 5M in php.ini',
-                'Setting "<strong>realpath_cache_size</strong>" to e.g. "<strong>5242880</strong>" or "<strong>5M</strong>" in php.ini<a href="#phpini">*</a> may improve performance on Windows significantly in some cases.'
-            );
-        }
+		if ('WIN' === strtoupper(substr(PHP_OS, 0, 3))) {
+			$this->addRecommendation(
+				$this->getRealpathCacheSize() >= 5 * 1024 * 1024,
+				'realpath_cache_size should be at least 5M in php.ini',
+				'Setting "<strong>realpath_cache_size</strong>" to e.g. "<strong>5242880</strong>" or "<strong>5M</strong>" in php.ini<a href="#phpini">*</a> may improve performance on Windows significantly in some cases.'
+			);
+		}
 
-        $this->addPhpIniRecommendation('short_open_tag', false);
+		$this->addPhpIniRecommendation('short_open_tag', false);
 
-        $this->addPhpIniRecommendation('magic_quotes_gpc', false, true);
+		$this->addPhpIniRecommendation('magic_quotes_gpc', false, true);
 
-        $this->addPhpIniRecommendation('register_globals', false, true);
+		$this->addPhpIniRecommendation('register_globals', false, true);
 
-        $this->addPhpIniRecommendation('session.auto_start', false);
+		$this->addPhpIniRecommendation('session.auto_start', false);
 
-        $this->addRecommendation(
+		$this->addRecommendation(
             class_exists('PDO'),
             'PDO should be installed',
             'Install <strong>PDO</strong> (mandatory for Doctrine).'
@@ -776,22 +762,26 @@ class SymfonyRequirements extends RequirementCollection
      *
      * @return int
      */
-    protected function getRealpathCacheSize()
-    {
-        $size = ini_get('realpath_cache_size');
-        $size = trim($size);
-        $unit = strtolower(substr($size, -1, 1));
-        switch ($unit) {
-            case 'g':
-                return $size * 1024 * 1024 * 1024;
-            case 'm':
-                return $size * 1024 * 1024;
-            case 'k':
-                return $size * 1024;
-            default:
-                return (int) $size;
-        }
-    }
+	protected function getRealpathCacheSize()
+	{
+		$size = ini_get('realpath_cache_size');
+		$size = trim($size);
+		$unit = '';
+		if (!ctype_digit($size)) {
+			$unit = strtolower(substr($size, -1, 1));
+			$size = (int)substr($size, 0, -1);
+		}
+		switch ($unit) {
+			case 'g':
+				return $size * 1024 * 1024 * 1024;
+			case 'm':
+				return $size * 1024 * 1024;
+			case 'k':
+				return $size * 1024;
+			default:
+				return (int)$size;
+		}
+	}
 
     /**
      * Defines PHP required version from Symfony version.

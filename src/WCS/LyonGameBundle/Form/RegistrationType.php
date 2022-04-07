@@ -14,38 +14,38 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
-            ->add('country', null, array('label' => 'Pays'))
-            ->add('city', null, array('label' => 'Ville'))
-            ->add('language', null, array('label' => 'Langue'));
-    }
+	public function buildForm(FormBuilderInterface $builder, array $options)
+	{
+		$builder
+			->add('country', null, array('label' => 'Pays'))
+			->add('city', null, array('label' => 'Ville'))
+			->add('language', null, array('label' => 'Langue'));
+	}
 
 
-    public function getParent()
-    {
-        return 'fos_user_registration';
-    }
+	public function getParent(): string
+	{
+		return 'fos_user_registration';
+	}
 
-    public function  getBlockPrefix()
-    {
-        return 'iti_user_registration';
-    }
+	public function getBlockPrefix(): string
+	{
+		return 'iti_user_registration';
+	}
 
-    public function getCountry()
-    {
-        return $this->getBlockPrefix();
-    }
+	public function getCountry(): string
+	{
+		return $this->getBlockPrefix();
+	}
 
-    public function getCity()
-    {
-        return $this->getBlockPrefix();
-    }
+	public function getCity(): string
+	{
+		return $this->getBlockPrefix();
+	}
 
-    public function getLanguage()
-    {
-        return $this->getBlockPrefix();
-    }
+	public function getLanguage(): string
+	{
+		return $this->getBlockPrefix();
+	}
 
 }
